@@ -1,0 +1,36 @@
+@use "../auxil";
+
+section.container {
+	position: absolute;
+	right: .5rem;
+	top: 15%;
+
+	@include auxil.responsive(1) {
+		top: 50%;
+	}
+
+	@include auxil.responsive(3) {
+		right: 10%;
+	}
+
+	user-select: none;
+	pointer-events: none;
+	transition: top .1s linear, right .1s linear;
+
+	* {
+		pointer-events: initial;
+	}
+}
+
+.title {
+	width: min-content;
+	margin: 0 0 .5rem;
+	padding: 0 .5rem;
+	font-size: clamp(.7rem, 2vw, 1rem);
+}
+
+.buttons {
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+}

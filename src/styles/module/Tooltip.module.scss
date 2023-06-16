@@ -1,0 +1,46 @@
+@use "../auxil";
+
+section.container {
+	width: min-content;
+	height: min-content;
+
+	margin: auto;
+
+	position: absolute;
+	right: 50%;
+	bottom: .5rem;
+
+	transform: translate(50%);
+
+	pointer-events: none;
+
+	* {
+		pointer-events: initial;
+	}
+}
+
+.title {
+	width: min-content;
+	margin: 0 0 .5rem;
+	padding: 0 1rem;
+	font-size: clamp(.7rem, 2vw, 1rem);
+}
+
+.tooltip {
+	width: 90vw;
+	height: 36vw;
+	max-width: 650px;
+	max-height: 260px;
+	
+	padding: 2.5vw 4.5vw 3.5vw;
+	
+	display: flex;
+	align-self: end;
+	
+	background-image: url("/elements/tooltip_border.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	font-size: clamp(.7rem, 2vw, .9rem);
+}

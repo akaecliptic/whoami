@@ -1,0 +1,72 @@
+@use "../../auxil";
+
+div.container {
+	padding: 0 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+	
+	&, * {
+		pointer-events: none;
+	}
+}
+
+button.selection,
+button.selected {
+	width: min-content;
+	height: min-content;
+
+	padding: 0;
+
+	outline: none;
+	border: none;
+	background: none;
+
+	cursor: pointer;
+	user-select: none;
+	pointer-events: initial;
+
+	> h5 {
+		margin: 0;
+		font-size: clamp(.55rem, 2vw, .75rem);
+	}
+}
+
+button.selection:hover {
+	+ button.dots > img {
+		filter: opacity(.35);
+	}
+}
+
+button.selected {
+	+ button.dots > img {
+		filter: opacity(1);
+	}
+}
+
+button.dots {
+	width: min-content;
+	height: min-content;
+
+	padding: 0;
+
+	display: flex;
+
+	outline: none;
+	border: none;
+	background: none;
+
+	cursor: pointer;
+	pointer-events: initial;
+	
+	> img {
+		width: clamp(1.5rem, 3vw, 2.5rem);
+		height: clamp(1.5rem, 3vw, 2.5rem);
+		filter: opacity(.25);
+		transition: filter .1s linear;
+	}
+
+	&:hover > img {
+		filter: opacity(.5);
+	}
+}

@@ -1,0 +1,56 @@
+@use "../../auxil";
+
+div.container {
+	padding: 0 1rem;
+	display: flex;
+	align-items: center;
+	gap: .25rem;
+	
+	&, * {
+		pointer-events: none;
+	}
+}
+
+button.selection,
+button.selected {
+	width: min-content;
+	height: min-content;
+
+	padding: .75rem .5rem;
+
+	outline: none;
+	border: none;
+	background: none;
+
+	cursor: pointer;
+	user-select: none;
+	pointer-events: initial;
+
+	> h5 {
+		margin: 0;
+		font-size: clamp(.55rem, 2vw, .75rem);
+		filter: drop-shadow(0 0 2px black);
+		transition: color .1s linear;
+	}
+}
+
+button.selection {
+	h5 {
+		color: grey;
+	}
+
+	&:hover h5 {
+		color: lightgrey;
+	}
+}
+
+button.selected {
+	color: white;
+}
+
+a.link {
+	width: max-content;
+	text-decoration: none;
+	pointer-events: initial;
+	font-size: clamp(.6rem, 2vw, .9rem);
+}

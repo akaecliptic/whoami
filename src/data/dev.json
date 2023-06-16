@@ -1,0 +1,38 @@
+{
+	"technologies": [
+		{
+			"name": "Java",
+			"value": 5
+		},
+		{
+			"name": "TypeScript",
+			"value": 4
+		},
+		{
+			"name": "SQL",
+			"value": 3
+		},
+		{
+			"name": "More",
+			"value": 3
+		}
+	],
+	"portfolio": [
+		{
+			"name": "cinephile",
+			"link": "https://github.com/akaecliptic/Cinephile"
+		},
+		{
+			"name": "akaecliptic.dev",
+			"link": "https://akaecliptic.dev/"
+		},
+		{
+			"name": "cineranker",
+			"link": "https://cineranker.vercel.app/"
+		},
+		{
+			"name": "be:hurd",
+			"link": "https://behurd.vercel.app/"
+		}
+	]
+}

@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&family=Rubik+Glitch&family=Ubuntu+Mono&display=swap');
+
+$font-body: 'DotGothic16', sans-serif;
+$font-head: 'Press Start 2P', cursive;
+$font-code: 'Ubuntu Mono', monospace;
+$font-mantra: 'Rubik Glitch', cursive;
+
+$level-canvas: 0;
+$level-html: 1;
+$level-intro: 2;
+
+$screen-small: 700px;
+$screen-medium: 1050px;
+$screen-large: 1400px;
+
+$break-min: 1;
+$break-mid: 2;
+$break-max: 3;
+
+// MIXIN RESPONSIVE
+
+@mixin responsive($range) {
+    @if $range == $break-min {
+        @media only screen and (max-width: $screen-small) {
+            @content;
+        }
+    }
+    @else if $range == $break-mid {
+        @media only screen and (min-width: $screen-small) and (max-width: $screen-large) {
+            @content;
+        }
+    }
+    @else if $range == $break-max {
+        @media only screen and (min-width: $screen-large) {
+            @content;
+        }
+    }
+}
+

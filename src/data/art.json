@@ -1,0 +1,21 @@
+{
+	"tools": [
+		"ClipStudioPaint",
+		"Blender",
+		"Flash",
+		"Figma"
+	],
+	"portfolio": [
+		{
+			"name": "this.site"
+		},
+		{
+			"name": "instagram",
+			"link": "https://www.instagram.com/mide.mide.mide/"
+		},
+		{
+			"name": "akaecliptic.dev",
+			"link": "https://akaecliptic.dev/"
+		}
+	]
+}

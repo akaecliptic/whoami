@@ -1,0 +1,29 @@
+@use "../auxil";
+
+header.container {
+	width: 100vw;
+	max-width: auxil.$screen-large;
+
+	padding: .5rem;
+	margin: 0 auto;
+
+	display: flex;
+	justify-content: space-between;
+	
+	pointer-events: none;
+	z-index: auxil.$level-html;
+
+	* {
+		pointer-events: initial;
+	}
+
+	#logo {
+		width: clamp(3rem, 7vw, 5rem);
+		height: clamp(3rem, 7vw, 5rem);
+	}
+
+	.buttons {
+		display: flex;
+	}
+}
+

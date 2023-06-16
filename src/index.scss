@@ -1,0 +1,126 @@
+@use "styles/auxil";
+
+// ROOT
+
+* {
+	box-sizing: border-box;
+	color: white;
+
+	&::selection {
+		color: black;
+		background-color: white;
+	}
+}
+
+// TEXT
+
+span, div, p {
+	font-family: auxil.$font-body;
+}
+
+h1, h2, h3, 
+h4, h5, h6 {
+	font-family: auxil.$font-head;
+}
+
+// CONTAINERS
+
+html, body, div#root {
+	width: 100vw;
+	height: 100%;
+
+	padding: 0;
+	margin: 0;
+}
+
+div#root {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+
+	> canvas {
+		flex: 1;
+		position: absolute;
+		z-index: auxil.$level-canvas;
+	}
+}
+
+main {
+	position: relative;
+	flex: 1;
+	display: flex;
+	pointer-events: none;
+	z-index: auxil.$level-html;
+}
+
+// OVERLAY
+img#animation-overlay {
+	width: 70vw;
+	max-width: 900px;
+
+	position: absolute;
+	right: 50%;
+	top: 15vh;
+	transform: translateX(50%);
+
+	@include auxil.responsive(1) {
+		top: 20vh;
+	}
+
+	opacity: .75;
+	image-rendering: pixelated;
+
+	pointer-events: none;
+	user-select: none;
+}
+
+img.animation-hidden {
+	opacity: 0;
+	display: none;
+	visibility: hidden;
+}
+
+// TERMINAL
+div.intro {
+	padding: 1rem;
+
+	position: absolute;
+	inset: 0;
+
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+
+	opacity: 1;
+	z-index: auxil.$level-intro;
+
+	font-family: auxil.$font-code;
+	background-color: rgba(black, .99);
+	transition: opacity .75s ease-in;
+
+	> .container-typeit {
+		padding: .75rem 0;
+		display: flex;
+		gap: .5rem;
+	}
+
+	> .container-typeit > code > span.ti-cursor {
+		background-color: white;
+		width: .45rem;
+	}
+
+	&.fadeout {
+		opacity: 0;
+		pointer-events: none;
+		user-select: none;
+	}
+}
+
+code {
+	display: flex;
+	white-space: pre;
+	font-weight: 600;
+	font-family: auxil.$font-code;
+	font-size: clamp(.75rem, 1.5vw, 1.1rem);
+}
+
