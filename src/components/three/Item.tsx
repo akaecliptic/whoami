@@ -41,6 +41,7 @@ const Item: Component<PropItem> = (props) => {
 
 		const material = new SpriteMaterial({
 			map: texture,
+			transparent: true,
 			alphaTest: 0.1,
 		});
 
