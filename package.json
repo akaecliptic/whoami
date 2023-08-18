@@ -1,6 +1,6 @@
 {
 	"name": "whoami",
-	"version": "0.0.9",
+	"version": "0.1.0",
 	"description": "akaecliptic portfolio card",
 	"scripts": {
 		"start": "vite",
