@@ -32,15 +32,24 @@ section.container {
 	max-width: 650px;
 	max-height: 260px;
 	
-	padding: 2.5vw 4.5vw 3.5vw;
+	padding: 1rem 2.5rem 1rem;
 	
 	display: flex;
 	align-self: end;
+	justify-content: center;
 	
 	background-image: url("/elements/tooltip_border.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 
-	font-size: clamp(.7rem, 2vw, .9rem);
+	font-size: clamp(.7rem, 3vw, 1rem);
+
+	@include auxil.responsive(1) {
+		padding: 1.45rem 2rem 1rem;
+		
+		> p { 
+			margin: 0;
+		}
+	}
 }
