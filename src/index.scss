@@ -1,0 +1,91 @@
+@use "styles/vars";
+@use "styles/auxil";
+
+/// text
+//
+
+* {
+	color: vars.$colour-light;
+	font-family: vars.$font-main;
+
+	&::selection {
+		color: vars.$colour-dark;
+		background-color: vars.$colour-light;
+	}
+}
+
+/// parent containers
+//
+
+html,
+body,
+div#root {
+	width: 100dvw;
+	height: 100dvh;
+
+	padding: 0;
+	margin: 0;
+
+	background-color: vars.$colour-dark;
+}
+
+div#root {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+
+	> main {
+		position: relative;
+
+		padding: 50px 0 0;
+
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		gap: vars.$space-medium;
+
+		pointer-events: none;
+		z-index: vars.$level-interface;
+
+		@include auxil.responsive(auxil.$mid) {
+			flex-direction: column-reverse;
+			justify-content: unset;
+			align-items: unset;
+			gap: 0;
+		}
+
+		@include auxil.responsive(auxil.$min) {
+			flex-direction: column-reverse;
+			justify-content: unset;
+			align-items: unset;
+			gap: 0;
+		}
+	}
+
+	> canvas {
+		position: absolute;
+		z-index: vars.$level-canvas;
+	}
+}
+
+/// icons
+//
+
+div.icon_wrapper {
+	width: fit-content;
+	height: fit-content;
+	display: flex;
+}
+
+/// loading
+//
+
+.loading {
+	position: absolute;
+	left: 50%;
+	bottom: 50%;
+	transform: translate(-50%, -50%);
+
+	font-family: vars.$font-code;
+}

@@ -1,0 +1,222 @@
+@use "../auxil";
+@use "../vars";
+
+/// header
+//
+
+// rounded section of header line accent
+$size-outline: 72px;
+$size-icon-stat: 36px;
+$size-logo: 96px;
+
+$size-outline-small: 45px;
+$size-icon-stat-small: 25px;
+
+header.container {
+	width: 100vw;
+	max-width: vars.$screen-large;
+
+	padding: 0 vars.$space-large;
+	margin: 0 auto;
+
+	box-sizing: border-box;
+
+	pointer-events: none;
+	z-index: vars.$level-interface;
+
+	@include auxil.responsive(auxil.$min) {
+		padding: 0 vars.$space-small;
+	}
+
+	/// top
+	//
+
+	// time and stats
+	#header_top {
+		height: $size-outline;
+
+		margin-left: calc(($size-logo / 2) + $size-outline);
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		border: solid vars.$colour-light;
+		border-width: 0 0 2px 0;
+
+		font-size: vars.$font-size-medium;
+		letter-spacing: -1px;
+
+		@include auxil.responsive(auxil.$min) {
+			height: $size-outline-small;
+			margin: 0 auto;
+			width: 90%;
+		}
+	}
+
+	#time {
+		display: flex;
+		align-items: center;
+		gap: vars.$space-xsmall;
+
+		font-size: vars.$font-size-medium;
+
+		@include auxil.responsive(auxil.$min) {
+			display: none;
+		}
+	}
+
+	.time_icon {
+		width: $size-icon-stat;
+		height: $size-icon-stat;
+
+		> svg {
+			width: inherit;
+			height: inherit;
+			fill: vars.$colour-light;
+		}
+	}
+
+	#stats {
+		display: flex;
+		gap: vars.$space-xlarge;
+
+		@include auxil.responsive(auxil.$min) {
+			width: 100%;
+			justify-content: space-between;
+			gap: vars.$space-medium;
+		}
+	}
+
+	.stat {
+		height: fit-content;
+		display: flex;
+		gap: vars.$space-xsmall;
+
+		.stat_icon {
+			width: $size-icon-stat;
+			height: $size-icon-stat;
+
+			display: inline-block;
+
+			text-align: center;
+			line-height: $size-icon-stat;
+
+			color: vars.$colour-dark;
+			background-color: vars.$colour-light;
+
+			@include auxil.responsive(auxil.$min) {
+				width: $size-icon-stat-small;
+				height: $size-icon-stat-small;
+
+				line-height: $size-icon-stat-small;
+				font-size: vars.$font-size-small;
+			}
+
+			&.circle {
+				border-radius: 100%;
+			}
+
+			&.degree {
+				line-height: 10px;
+				border-radius: 0 0 90% 0;
+			}
+		}
+
+		.stat_text {
+			text-align: center;
+			line-height: calc($size-icon-stat / 2);
+
+			@include auxil.responsive(auxil.$min) {
+				line-height: calc($size-icon-stat-small / 2);
+			}
+		}
+	}
+
+	/// logo and rounded outline
+	//
+
+	#logo_container {
+		width: $size-outline;
+		height: $size-outline;
+
+		left: calc($size-logo / 2);
+		position: relative;
+
+		@include auxil.responsive(auxil.$min) {
+			display: none;
+		}
+	}
+
+	#logo {
+		width: $size-logo;
+		height: $size-logo;
+
+		position: absolute;
+		transform: translate(-50%, -50%);
+
+		@include auxil.responsive(auxil.$min) {
+			display: none;
+		}
+	}
+
+	#outline {
+		width: inherit;
+		height: inherit;
+
+		position: absolute;
+
+		border: solid vars.$colour-light;
+		border-width: 0 2px 2px 0;
+		border-radius: 0 0 100% 0;
+
+		@include auxil.responsive(auxil.$min) {
+			display: none;
+		}
+	}
+}
+
+/// footer
+//
+
+// note: ty ty
+// https://stackoverflow.com/questions/16506623/css-animations-alter-frame-rate
+// https://stackoverflow.com/questions/67891742/how-to-infinitely-scroll-horizontal-text-with-javascript
+
+footer.container {
+	width: 100dvw;
+	height: vars.$space-large;
+
+	display: flex;
+	align-items: center;
+
+	overflow: hidden;
+	pointer-events: none;
+	z-index: vars.$level-interface;
+
+	background-color: vars.$colour-light;
+
+	@include auxil.responsive(auxil.$min) {
+		display: none;
+	}
+
+	> div {
+		white-space: nowrap;
+		animation: scroll 3s infinite steps(6);
+
+		span {
+			font-size: vars.$font-size-medium;
+			font-family: vars.$font-code;
+			color: vars.$colour-dark;
+		}
+	}
+}
+
+@keyframes scroll {
+	from {
+		transform: translateX(0%);
+	}
+	to {
+		transform: translateX(-50%);
+	}
+}

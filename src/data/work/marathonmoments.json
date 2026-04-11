@@ -1,0 +1,13 @@
+{
+    "description": "Marathon and race event photography across Ireland.",
+    "tech": [
+        "typescript",
+        "astro",
+        "aws",
+        "docker",
+        "postrges",
+        "figma"
+    ],
+    "link": "https://www.marathonmoments.ie",
+    "text": "website"
+}

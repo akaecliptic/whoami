@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+/// fonts
+//
+
+$font-main: "Lexend", sans-serif;
+$font-code: "Ubuntu Mono", monospace;
+
+$font-size-small: 16px;
+$font-size-medium: 18px;
+
+/// spacing
+//
+
+$space-xsmall: 4px;
+$space-small: 8px;
+$space-medium: 12px;
+$space-large: 24px;
+$space-xlarge: 48px;
+
+/// corners
+//
+
+$corner-xsmall: 4px;
+
+/// colours
+//
+
+$colour-dark: #111111;
+$colour-light: #fefefe;
+
+$colour-light-secondary: rgba(
+	$color: $colour-light,
+	$alpha: 0.75,
+);
+$colour-light-faint: rgba(
+	$color: $colour-light,
+	$alpha: 0.15,
+);
+$colour-light-transparent: rgba(
+	$color: $colour-light,
+	$alpha: 0,
+);
+
+/// levels
+//
+
+$level-under: -1;
+$level-canvas: 0;
+$level-interface: 1;
+
+/// breakpoints
+//
+
+$screen-small: 700px;
+$screen-medium: 1000px;
+$screen-large: 1400px;

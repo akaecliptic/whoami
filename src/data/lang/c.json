@@ -1,0 +1,10 @@
+{
+    "description": "Understanding how systems work is the ultimate goal, and when the developer wants to get closer to the underlying hardware, they do so with C.",
+    "experience": 3,
+    "domains": [
+        "cli",
+        "gamedev",
+        "unix",
+        "win32"
+    ]
+}

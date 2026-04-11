@@ -1,0 +1,12 @@
+{
+    "description": "This websites source code, the developer's 'portfolio' website.",
+    "tech": [
+        "typescript",
+        "solid",
+        "three",
+        "blender",
+        "figma"
+    ],
+    "link": "https://github.com/akaecliptic/whoami",
+    "text": "source code"
+}

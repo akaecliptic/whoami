@@ -1,0 +1,49 @@
+@use "../vars";
+
+/// chip
+//
+
+.chip_container {
+	height: min-content;
+
+	margin: vars.$space-small 0;
+
+	display: flex;
+	flex-wrap: wrap;
+	gap: vars.$space-xsmall;
+}
+
+.chip {
+	padding: vars.$space-xsmall vars.$space-small;
+	color: vars.$colour-dark;
+	background-color: vars.$colour-light;
+	border-radius: vars.$corner-xsmall;
+}
+
+/// Experience
+//
+
+.experience_container {
+	margin: vars.$space-medium 0;
+
+	.experience_bar {
+		height: 4px;
+
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: vars.$space-xsmall;
+
+		.bar {
+			background-color: vars.$colour-light;
+			border-radius: vars.$corner-xsmall;
+		}
+
+		.bar.empty {
+			background-color: vars.$colour-light-faint;
+		}
+	}
+
+	.experience_label {
+		padding-left: vars.$space-medium;
+	}
+}

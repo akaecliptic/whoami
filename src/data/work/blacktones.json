@@ -1,0 +1,11 @@
+{
+    "description": "Open mic nights hosted in Ireland - Last Sunday of the month.",
+    "tech": [
+        "typescript",
+        "astro",
+        "sanity",
+        "figma"
+    ],
+    "link": "https://www.blacktones.ie",
+    "text": "website"
+}

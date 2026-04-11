@@ -1,0 +1,24 @@
+@use "./vars" as *;
+
+$min: 1;
+$mid: 2;
+$max: 3;
+
+/// utility
+//
+
+@mixin responsive($range) {
+	@if $range == $min {
+		@media only screen and (max-width: $screen-small) {
+			@content;
+		}
+	} @else if $range == $mid {
+		@media only screen and (min-width: $screen-small) and (max-width: $screen-large) {
+			@content;
+		}
+	} @else if $range == $max {
+		@media only screen and (min-width: $screen-large) {
+			@content;
+		}
+	}
+}

@@ -1,0 +1,329 @@
+@use "../auxil";
+@use "../vars";
+
+/// common
+//
+
+$size-icon-article: 48px;
+$size-icon-article-small: 40px;
+
+$size-icon-nav: 48px;
+$size-icon-nav-small: 40px;
+
+$size-label-height: 48px;
+$size-label-width: 144px;
+
+aside.container,
+article.container,
+nav.container {
+	height: fit-content;
+	pointer-events: initial;
+}
+
+h2,
+h3 {
+	margin: 0;
+}
+
+/// left
+//
+
+aside.container {
+	max-width: 450px;
+
+	@include auxil.responsive(auxil.$mid) {
+		padding: 0;
+		// 4px = 2 * nav border width;
+		margin: 0 auto calc($size-icon-nav + vars.$space-large + 4px) auto;
+
+		h2,
+		hr {
+			display: none;
+		}
+	}
+
+	@include auxil.responsive(auxil.$min) {
+		padding: 0;
+		// 4px = 2 * nav border width;
+		margin: 0 auto calc($size-icon-nav-small + vars.$space-large + 4px) auto;
+
+		h2,
+		hr {
+			display: none;
+		}
+	}
+}
+
+#aside_content {
+	margin: 0 auto;
+
+	display: flex;
+	gap: vars.$space-xsmall;
+	flex-wrap: wrap;
+
+	padding: 0 vars.$space-small;
+
+	@include auxil.responsive(auxil.$mid) {
+		padding: vars.$space-medium 0;
+		justify-content: center;
+	}
+
+	@include auxil.responsive(auxil.$min) {
+		padding: vars.$space-medium 0;
+		justify-content: center;
+	}
+}
+
+.aside_icon {
+	padding: vars.$space-small;
+	background-color: vars.$colour-light-faint;
+	border-radius: vars.$corner-xsmall;
+
+	transition: all 0.25s ease-in-out;
+
+	> svg {
+		width: $size-icon-article;
+		height: $size-icon-article;
+
+		fill: vars.$colour-light;
+
+		transition: all 0.25s ease-in-out;
+
+		@include auxil.responsive(auxil.$min) {
+			width: $size-icon-article-small;
+			height: $size-icon-article-small;
+		}
+	}
+
+	&.active {
+		background-color: vars.$colour-light;
+
+		> svg {
+			fill: vars.$colour-dark;
+		}
+	}
+
+	&:hover {
+		background-color: vars.$colour-light;
+
+		> svg {
+			fill: vars.$colour-dark;
+		}
+	}
+}
+
+/// right
+//
+
+article.container {
+	max-width: 450px;
+	width: 95dvw;
+
+	padding: vars.$space-large vars.$space-medium vars.$space-large vars.$space-large;
+
+	box-sizing: border-box;
+
+	background-color: vars.$colour-light-faint;
+
+	@include auxil.responsive(auxil.$mid) {
+		padding: vars.$space-medium;
+		margin: 0 auto;
+	}
+
+	@include auxil.responsive(auxil.$min) {
+		padding: vars.$space-medium;
+		margin: 0 auto;
+	}
+}
+
+#article_title {
+	height: min-content;
+
+	display: flex;
+	justify-content: space-between;
+	overflow: hidden;
+
+	h2 {
+		margin: 0;
+	}
+
+	> #article_toggle {
+		background: none;
+		border: none;
+
+		&.toggle_open {
+			svg {
+				transform: scale(-1);
+			}
+		}
+
+		&.toggle_close {
+			svg {
+				transform: scale(1);
+			}
+		}
+
+		svg {
+			width: vars.$space-large;
+			height: vars.$space-large;
+
+			fill: vars.$colour-light;
+			transition: transform 0.25s ease-in-out;
+		}
+	}
+}
+
+#article_description {
+	overflow-y: hidden;
+
+	transition: max-height 0.25s ease-in-out;
+
+	&.toggle_open {
+		max-height: 1000px;
+	}
+
+	&.toggle_close {
+		max-height: 0px;
+
+		* {
+			animation: 0.1s linear 0.3s normal forwards hide;
+		}
+	}
+
+	p {
+		margin: vars.$space-small 0;
+	}
+
+	.p,
+	.quote,
+	.link {
+		padding: 0 vars.$space-medium;
+
+		&,
+		& > q {
+			color: vars.$colour-light-secondary;
+		}
+	}
+}
+
+@keyframes hide {
+	from {
+		opacity: 1;
+		transform: scaleY(1);
+	}
+	to {
+		opacity: 0;
+		transform: scaleY(0);
+	}
+}
+
+/// bottom
+//
+
+nav.container {
+	padding: 0 vars.$space-xlarge;
+
+	position: absolute;
+	right: 50%;
+	transform: translateX(50%);
+	bottom: vars.$space-large;
+
+	display: flex;
+	gap: vars.$space-xlarge;
+
+	box-sizing: border-box;
+	border: 2px solid vars.$colour-light;
+	border-radius: vars.$corner-xsmall;
+
+	@include auxil.responsive(auxil.$min) {
+		width: 95dvw;
+		max-width: 500px;
+
+		justify-content: space-between;
+		gap: 0;
+	}
+}
+
+.nav_icon {
+	background-color: transparent;
+
+	transition: all 0.25s ease-in-out;
+
+	> svg {
+		width: $size-icon-nav;
+		height: $size-icon-nav;
+
+		fill: vars.$colour-light;
+
+		transition: all 0.25s ease-in-out;
+
+		@include auxil.responsive(auxil.$min) {
+			width: $size-icon-nav-small;
+			height: $size-icon-nav-small;
+		}
+	}
+
+	&.active {
+		background-color: vars.$colour-light;
+
+		> svg {
+			fill: vars.$colour-dark;
+		}
+	}
+}
+
+#nav_selector {
+	width: $size-icon-nav;
+	height: $size-icon-nav;
+
+	position: absolute;
+
+	display: none;
+	pointer-events: none;
+
+	z-index: vars.$level-under;
+
+	transition: left 0.1s linear;
+
+	@include auxil.responsive(auxil.$min) {
+		width: $size-icon-nav-small;
+		height: $size-icon-nav-small;
+	}
+
+	&.active {
+		background-color: vars.$colour-light-faint;
+		display: flex;
+	}
+
+	&.inactive {
+		background: none;
+	}
+}
+
+#nav_label {
+	min-width: $size-label-width;
+	height: $size-label-height;
+
+	padding: 0 vars.$space-small;
+
+	position: absolute;
+	top: calc($size-label-height * -1);
+	right: 50%;
+	transform: translateX(50%);
+
+	line-height: $size-label-height;
+	font-family: vars.$font-code;
+	text-align: center;
+
+	background: linear-gradient(vars.$colour-light-transparent, vars.$colour-light-faint 70%);
+
+	box-sizing: border-box;
+
+	@include auxil.responsive(auxil.$mid) {
+		display: none;
+	}
+
+	@include auxil.responsive(auxil.$min) {
+		display: none;
+	}
+}

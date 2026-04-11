@@ -1,0 +1,24 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "solid"
+    ],
+    "extends": [
+        "prettier",
+        "eslint:recommended",
+        "plugin:solid/recommended"
+    ],
+    "rules": {
+        "jsx-quotes": [
+            "warn",
+            "prefer-single"
+        ],
+        "no-unused-vars": [
+            "warn",
+            {
+                "args": "none",
+                "varsIgnorePattern": "_"
+            }
+        ]
+    }
+}

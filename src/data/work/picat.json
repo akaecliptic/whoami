@@ -1,0 +1,10 @@
+{
+    "description": "Super simple templating tool.",
+    "tech": [
+        "zig",
+        "cli",
+        "aws"
+    ],
+    "link": "https://github.com/akaecliptic/picat",
+    "text": "source code"
+}
