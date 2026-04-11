@@ -151,14 +151,30 @@ article.container {
 		background: none;
 		border: none;
 
-		&.toggle_open {
-			svg {
+		&.toggle_open svg {
+			transform: scale(1);
+		}
+
+		&.toggle_close svg {
+			transform: scale(-1);
+		}
+
+		@include auxil.responsive(auxil.$mid) {
+			&.toggle_open svg {
 				transform: scale(-1);
+			}
+
+			&.toggle_close svg {
+				transform: scale(1);
 			}
 		}
 
-		&.toggle_close {
-			svg {
+		@include auxil.responsive(auxil.$min) {
+			&.toggle_open svg {
+				transform: scale(-1);
+			}
+
+			&.toggle_close svg {
 				transform: scale(1);
 			}
 		}
