@@ -35,9 +35,12 @@ div#root {
 	flex-direction: column;
 
 	> main {
-		position: relative;
+		width: 100%;
+		max-width: vars.$screen-max;
 
+		position: relative;
 		padding: 50px 0 0;
+		margin: 0 auto;
 
 		flex: 1;
 		display: flex;
